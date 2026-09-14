@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- TVA background artwork uploaded by the site owner -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3828 2160" preserveAspectRatio="xMidYMid slice">
+<rect width="3828" height="2160" fill="#07050A"/>
+<defs><radialGradient id="g" cx="50%" cy="42%" r="75%"><stop offset="0" stop-color="#4b050b"/><stop offset=".48" stop-color="#130609"/><stop offset="1" stop-color="#030303"/></radialGradient></defs>
+<rect width="3828" height="2160" fill="url(#g)"/>
+<path d="M0 1740 Q900 1250 1900 1700 T3828 1450 V2160H0Z" fill="#050305" opacity=".9"/>
+<text x="1914" y="1110" text-anchor="middle" font-family="Arial Black,Arial,sans-serif" font-size="520" font-weight="900" letter-spacing="80" fill="#e50914" opacity=".88">TVA</text>
+<text x="1914" y="1320" text-anchor="middle" font-family="Arial, sans-serif" font-size="95" font-weight="700" letter-spacing="28" fill="#ffffff" opacity=".85">PLAYERS</text>
+</svg>
