@@ -4,7 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>TVA — Players</title>
-<meta name="description" content="TVA Gang player roster and leadership.">
+<meta name="description" content="Explore the TVA Gang leadership and player roster for the fan-made GTA 5 RP community. Search members and discover the TVA crew.">
+<meta name="theme-color" content="#030303">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="TVA Players | GTA 5 RP Community">
+<meta property="og:description" content="Explore the TVA Gang leadership and player roster.">
+<meta property="og:url" content="https://offical-maker.github.io/TvaPlayers/">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap');
 @import url('https://db.onlinewebfonts.com/c/f8da091b59e597510b96bb399a1e5915?family=Dx+Slight+-+Free+Personal+Use+Md');
@@ -47,6 +56,11 @@ h2 span{color:var(--red)}
 .leader-card h3{font-size:25px;margin:14px 0 2px}
 .leader-card p,.player-card p{margin:0;color:var(--muted);letter-spacing:2px;font-weight:600}
 .players{background:#030303}
+.player-search-wrap{max-width:1100px;margin:-22px auto 28px}
+.player-search{width:100%;padding:15px 18px;border:1px solid #3a2225;background:#0b0b0d;color:#fff;font:600 18px Rajdhani,Arial,sans-serif;letter-spacing:1px;outline:none;border-radius:2px}
+.player-search:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(229,9,20,.15)}
+.player-search::placeholder{color:#92929a}
+.search-status{max-width:1100px;margin:0 auto 14px;color:var(--muted);font-size:15px;letter-spacing:1px}
 .players-grid{max-width:1100px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .player-card{min-height:145px;padding:18px;display:grid;grid-template-columns:38px 55px 1fr;align-items:center;gap:12px;background:linear-gradient(120deg,#080808 0%,#240004 48%,#090909 100%)}
 .player-card:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,0,0,.12),rgba(229,9,20,.16));pointer-events:none}
@@ -79,7 +93,10 @@ footer{padding:24px;text-align:center;color:#666;border-top:1px solid #17171a;le
 <article class="leader-card coleader"><div class="crown">✦</div><span class="badge">TVA</span><h3>TVA Chandra Boss</h3><p>Co-Leader</p></article>
 <article class="leader-card coleader"><div class="crown">✦</div><span class="badge">TVA</span><h3>TVA Ap Pappan</h3><p>Co-Leader</p></article>
 </div></section>
-<section class="players" id="players"><div class="section-head"><div class="eyebrow">02 / ROSTER</div><h2>TVA <span>Players</span></h2></div><div class="players-grid">
+<section class="players" id="players"><div class="section-head"><div class="eyebrow">02 / ROSTER</div><h2>TVA <span>Players</span></h2></div>
+<div class="player-search-wrap"><label for="playerSearch" class="eyebrow" style="display:block;margin-bottom:9px">FIND A MEMBER</label><input id="playerSearch" class="player-search" type="search" placeholder="Search player names..." autocomplete="off" aria-describedby="searchStatus"></div>
+<p class="search-status" id="searchStatus" aria-live="polite">Showing all 45 players</p>
+<div class="players-grid">
 <article class="player-card"><span class="number">01</span><span class="badge">TVA</span><div><h3>TVA Abel Joseph</h3><p>Member</p></div></article>
 <article class="player-card"><span class="number">02</span><span class="badge">TVA</span><div><h3>TVA Amabathoor</h3><p>Member</p></div></article>
 <article class="player-card"><span class="number">03</span><span class="badge">TVA</span><div><h3>TVA Ap Pappan</h3><p>Member</p></div></article>
@@ -129,5 +146,23 @@ footer{padding:24px;text-align:center;color:#666;border-top:1px solid #17171a;le
 <section class="bottom-tva" aria-label="TVA"><div>T<span>V</span>A</div></section>
 </main>
 <footer>TVA PLAYERS • FAN-MADE GTA 5 RP COMMUNITY WEBSITE</footer>
+<script>
+(() => {
+  const input = document.getElementById('playerSearch');
+  const cards = Array.from(document.querySelectorAll('.player-card'));
+  const status = document.getElementById('searchStatus');
+  if (!input || !status || !cards.length) return;
+  input.addEventListener('input', () => {
+    const query = input.value.trim().toLocaleLowerCase();
+    let visible = 0;
+    cards.forEach(card => {
+      const match = card.textContent.toLocaleLowerCase().includes(query);
+      card.hidden = !match;
+      if (match) visible++;
+    });
+    status.textContent = query ? (visible ? 'Found ' + visible + ' member' + (visible === 1 ? '' : 's') : 'No members found — try another name.') : 'Showing all ' + cards.length + ' players';
+  });
+})();
+</script>
 </body>
 </html>
